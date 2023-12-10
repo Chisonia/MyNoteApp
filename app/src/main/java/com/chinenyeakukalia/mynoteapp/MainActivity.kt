@@ -10,7 +10,8 @@ import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import com.chinenyeakukalia.mynoteapp.app.LoginScreen
+import com.chinenyeakukalia.mynoteapp.app.components.AppNavigation
+import com.chinenyeakukalia.mynoteapp.app.screens.SplashScreen
 import com.chinenyeakukalia.mynoteapp.ui.theme.MyNoteAppTheme
 
 class MainActivity : ComponentActivity() {
@@ -25,7 +26,7 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    LoginScreen()
+                    AppNavigation()
                 }
             }
         }
@@ -34,9 +35,9 @@ class MainActivity : ComponentActivity() {
 
     @Preview(showBackground = true)
     @Composable
-    fun LoginScreenPreview() {
+    fun AppPreview() {
         MyNoteAppTheme {
-            LoginScreen()
+            AppNavigation()
         }
     }
 }
