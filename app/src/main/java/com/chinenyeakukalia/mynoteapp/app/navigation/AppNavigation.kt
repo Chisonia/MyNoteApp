@@ -1,4 +1,4 @@
-package com.chinenyeakukalia.mynoteapp.app.components
+package com.chinenyeakukalia.mynoteapp.app.navigation
 
 import androidx.compose.runtime.Composable
 import androidx.navigation.compose.NavHost
@@ -12,13 +12,19 @@ fun AppNavigation(){
 val navController = rememberNavController()
     NavHost(
         navController = navController,
-        startDestination = "note-list"
+        startDestination = Routes.NoteListRoute
     ){
-        composable("note-list"){
+        composable(Routes.NoteListRoute) {
             NoteListScreen(navController)
         }
-        composable("add-note"){
-            AddNoteScreen()
+        composable(Routes.AddNoteRoute){
+            AddNoteScreen(navController)
         }
     }
+}
+
+object Routes{
+    val NoteListRoute = "note list"
+    val AddNoteRoute = "add-note"
+
 }

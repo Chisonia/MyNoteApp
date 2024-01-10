@@ -1,4 +1,4 @@
-package com.chinenyeakukalia.mynoteapp.app.screens
+package com.chinenyeakukalia.mynoteapp.app.components
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Column

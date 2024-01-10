@@ -10,8 +10,10 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import com.chinenyeakukalia.mynoteapp.R
 
 @Composable
 fun NoteItem(){
@@ -26,7 +28,7 @@ fun NoteItem(){
                 .padding(8.dp)
         ) {
             Text(
-                text = "Title of the note",
+                text = stringResource(R.string.title_of_the_note),
                 fontWeight = FontWeight.Black
             )
             Row(

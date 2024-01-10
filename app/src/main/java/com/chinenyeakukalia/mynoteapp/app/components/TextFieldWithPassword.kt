@@ -1,4 +1,4 @@
-package com.chinenyeakukalia.mynoteapp.app
+package com.chinenyeakukalia.mynoteapp.app.components
 
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -14,7 +14,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.unit.dp
-import com.chinenyeakukalia.mynoteapp.app.components.componentShape
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
