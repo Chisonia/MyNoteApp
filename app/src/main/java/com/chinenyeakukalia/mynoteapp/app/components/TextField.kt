@@ -1,5 +1,7 @@
 package com.chinenyeakukalia.mynoteapp.app.components
 
+import android.media.TimedText
+import androidx.compose.animation.core.estimateAnimationDurationMillis
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -19,8 +21,11 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.chinenyeakukalia.mynoteapp.app.view_model.NoteViewModel
+import kotlin.time.Duration
+import kotlin.time.ExperimentalTime
+import kotlin.time.TimedValue
 
-@OptIn(ExperimentalMaterial3Api::class)
+@OptIn(ExperimentalMaterial3Api::class, ExperimentalTime::class)
 @Composable
 fun TextField() {
     var title by rememberSaveable { mutableStateOf("") }

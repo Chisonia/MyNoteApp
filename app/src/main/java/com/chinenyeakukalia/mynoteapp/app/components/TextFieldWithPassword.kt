@@ -17,7 +17,7 @@ import androidx.compose.ui.unit.dp
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun MyTextFields(){
+fun MyTextFieldWithPass(){
     var username by remember { mutableStateOf("") }
     var password by remember { mutableStateOf("") }
     var fullname by remember { mutableStateOf("") }

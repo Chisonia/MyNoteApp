@@ -32,10 +32,7 @@ fun TopBar(navController: NavHostController) {
         navigationIcon = {
                          IconButton(onClick = {navController.popBackStack()
                          }){
-                             Icon(
-                             imageVector = Icons.Default.ArrowBack,
-                             contentDescription = "Back Button"
-                             )
+                             BackArrow()
                          }
         }
     )

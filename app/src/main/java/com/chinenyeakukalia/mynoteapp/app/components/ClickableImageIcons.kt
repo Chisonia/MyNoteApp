@@ -26,21 +26,21 @@ fun ImageIcons(){
             painter = painterResource(id = R.drawable.goog_ng),
             contentDescription = "Clickable Google Icon",
             modifier = Modifier
-                .size(width = 18.dp, height = 18.dp)
+                .size(width = 36.dp, height = 36.dp)
                 .padding(4.dp)
         )
         Image(
             painter = painterResource(id = R.drawable.face_ng),
             contentDescription = "Clickable Facebook Icon",
             modifier = Modifier
-                .size(width = 18.dp, height = 18.dp)
+                .size(width = 36.dp, height = 36.dp)
                 .padding(4.dp)
         )
         Image(
             painter = painterResource(id = R.drawable.appl_ng),
             contentDescription = "Clickable Apple Icon",
             modifier = Modifier
-                .size(width = 18.dp, height = 18.dp)
+                .size(width = 36.dp, height = 36.dp)
                 .padding(4.dp)
         )
     }

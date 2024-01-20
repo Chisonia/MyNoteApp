@@ -1,4 +1,4 @@
-package com.chinenyeakukalia.mynoteapp.app.components
+package com.chinenyeakukalia.mynoteapp.app.screens
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Column
@@ -22,7 +22,7 @@ fun SplashScreen() {
         modifier = Modifier.padding(all = 20.dp)
     ) {
         Image(
-            painter =  painterResource(id = R.drawable.notebookicon_ng),
+            painter =  painterResource(id = R.drawable.imageicon_ng),
             modifier = Modifier.fillMaxSize(),
             contentDescription = null,
             contentScale = ContentScale.None,

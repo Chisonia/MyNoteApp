@@ -1,12 +1,16 @@
 package com.chinenyeakukalia.mynoteapp.app.screens
 
 import android.widget.Toast
+import androidx.compose.foundation.Image
+import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.text.BasicTextField
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Done
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -16,6 +20,7 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextFieldDefaults
 import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
@@ -26,12 +31,16 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.draw.clipToBounds
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavHostController
 import com.chinenyeakukalia.mynoteapp.R
+import com.chinenyeakukalia.mynoteapp.app.components.DoneIcon
 import com.chinenyeakukalia.mynoteapp.app.components.TopBar
 import com.chinenyeakukalia.mynoteapp.app.components.componentShape
 import com.chinenyeakukalia.mynoteapp.app.view_model.NoteViewModel
@@ -61,52 +70,84 @@ fun AddNoteScreen(navController: NavHostController) {
                       actionIconContentColor = Color.White,
                   ),
                   actions = {
-                      IconButton(onClick = {
-                          Toast
-                              .makeText(context, R.string.note_saved, Toast.LENGTH_SHORT)
-                              .show()
-                          noteViewModel.saveNote(title, noteContent)
-                      },
+                      IconButton(
+                          onClick = {
+                              if (title.isEmpty() || noteContent.isEmpty()) {
+                                  Toast
+                                      .makeText(
+                                          context,
+                                          "Title/Note Content is empty",
+                                          Toast.LENGTH_SHORT
+                                      )
+                                      .show()
+                              } else {
+                                  Toast
+                                      .makeText(context, R.string.note_saved, Toast.LENGTH_SHORT)
+                                      .show()
+                              }
+                              noteViewModel.saveNote(title, noteContent)
+                          },
                       ) {
-                          Icon(
-                              imageVector = Icons.Default.Done,
-                              contentDescription = "Done",
-                          )
+                          DoneIcon()
                       }
                   },
               )
-              Column(
-                  modifier = Modifier
-                      .padding(8.dp)
-                      .fillMaxWidth()
-
-              ){
-                  OutlinedTextField(
-                      label = { Text("Add Title") },
-                      value = title,
-                      onValueChange = { titleInput -> title = titleInput },
+              Box {
+                  Image(
+                      painter = painterResource(id = R.drawable.backimage_ng),
+                      contentDescription = null,
+                      contentScale = ContentScale.Fit,
                       modifier = Modifier
+                          .fillMaxSize(1f)
+
+                  )
+                  Column(
+                      modifier = Modifier
+                          .padding(8.dp)
                           .fillMaxWidth()
-                          .padding(bottom = 0.dp)
-                          .clip(componentShape.small),
-                  )
-                  Row(
-                      horizontalArrangement = Arrangement.SpaceBetween,
-                      verticalAlignment = Alignment.CenterVertically,
-                      modifier = Modifier.fillMaxWidth()
-                  )
-                  {
+
+                  ) {
                       OutlinedTextField(
-                          label = { Text("Notes") },
-                          value = noteContent,
-                          onValueChange = { noteContentInput -> noteContent = noteContentInput },
+                          label = { Text("Title") },
+                          value = title,
+                          onValueChange = { titleInput -> title = titleInput },
+                          colors = TextFieldDefaults.colors(
+                              focusedContainerColor = Color.Transparent,
+                              unfocusedContainerColor = Color.Transparent,
+                              disabledContainerColor = Color.Transparent,
+                          ),
                           modifier = Modifier
                               .fillMaxWidth()
-                              .padding(bottom = 10.dp)
-                              .clip(componentShape.small),
-                      )
-                  }
+                              .clip(componentShape.small)
+                              .border(0.dp,Color.Transparent)
 
+                      )
+                      Row(
+                          horizontalArrangement = Arrangement.SpaceBetween,
+                          verticalAlignment = Alignment.CenterVertically,
+                          modifier = Modifier.fillMaxWidth()
+                      )
+                      {
+                          OutlinedTextField(
+                              label = { Text("Note") },
+                              value = noteContent,
+                              onValueChange = { noteContentInput ->
+                                  noteContent = noteContentInput
+                              },
+                              colors = TextFieldDefaults.colors(
+                                  focusedContainerColor = Color.Transparent,
+                                  unfocusedContainerColor = Color.Transparent,
+                                  disabledContainerColor = Color.Transparent,
+                              ),
+                              modifier = Modifier
+                                  .fillMaxWidth()
+                                  .padding(bottom = 10.dp)
+                                  .clip(componentShape.small)
+                                  .border(0.dp,Color.Transparent)
+                          )
+                      }
+
+                  }
               }
           }
       },

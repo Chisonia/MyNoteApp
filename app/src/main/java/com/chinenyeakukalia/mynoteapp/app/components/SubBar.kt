@@ -38,10 +38,7 @@ fun Bar(){
                     .show()
             },
             ) {
-                Icon(
-                    imageVector = Icons.Default.Done,
-                    contentDescription = "Done",
-                )
+                DoneIcon()
             }
         },
     )

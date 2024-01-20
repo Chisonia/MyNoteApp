@@ -56,13 +56,17 @@ android {
 }
 
 dependencies {
+    implementation ("com.google.accompanist:accompanist-insets:0.20.0")
+    implementation ("com.google.android.material:material:1.4.0")
+    implementation("com.google.ai.client.generativeai:generativeai:0.1.2")
+    implementation("androidx.compose.material3:material3-android:1.2.0-beta02")
     testImplementation("org.junit.jupiter:junit-jupiter:5.8.1")
     testImplementation("org.junit.jupiter:junit-jupiter:5.8.1")
     testImplementation("org.junit.jupiter:junit-jupiter:5.8.1")
     testImplementation("org.junit.jupiter:junit-jupiter:5.8.1")
     val lifecycle_version = "2.6.2"
     val  room_version = "2.6.1"
-
+    implementation ("androidx.compose.runtime:runtime-livedata:1.5.4")
     implementation ("androidx.room:room-ktx:$room_version")
     implementation("androidx.room:room-runtime:$room_version")
     annotationProcessor("androidx.room:room-compiler:$room_version")
@@ -79,7 +83,6 @@ dependencies {
     implementation("androidx.compose.ui:ui")
     implementation("androidx.compose.ui:ui-graphics")
     implementation("androidx.compose.ui:ui-tooling-preview")
-    implementation("androidx.compose.material3:material3")
     implementation("com.google.ar.sceneform:filament-android:1.17.1")
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
