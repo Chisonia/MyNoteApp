@@ -23,6 +23,7 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TextFieldDefaults
 import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
+import androidx.compose.material3.TopAppBarDefaults.topAppBarColors
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.livedata.observeAsState
@@ -60,12 +61,12 @@ fun NoteDetailsScreen(navController: NavController, noteId: String) {
         topBar = {
             TopAppBar(
                 title = { Text(text = "Note Details") },
-                colors = TopAppBarDefaults.smallTopAppBarColors(
+                colors = topAppBarColors(
                     containerColor = MaterialTheme.colorScheme.primary,
+                    navigationIconContentColor = Color.White,
                     titleContentColor = Color.White,
-                    actionIconContentColor = Color.White,
-                    navigationIconContentColor = Color.White
-                ),
+                    actionIconContentColor = Color.White
+),
                 actions = {
                     if(isEditMode) {
                         IconButton(onClick = {

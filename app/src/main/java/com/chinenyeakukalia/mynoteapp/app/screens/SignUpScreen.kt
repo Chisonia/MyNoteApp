@@ -4,7 +4,6 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Button
-import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -25,13 +24,14 @@ import com.chinenyeakukalia.mynoteapp.app.components.RememberMe
 import com.chinenyeakukalia.mynoteapp.app.components.componentShape
 import com.chinenyeakukalia.mynoteapp.app.navigation.Routes
 
-
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun LoginScreen(navController: NavController) {
+fun SignUpScreen(navController: NavController){
+    var username by remember { mutableStateOf("") }
     var password by remember { mutableStateOf("") }
+    var fullname by remember { mutableStateOf("") }
     val email by remember { mutableStateOf("") }
     val confirmpass by remember { mutableStateOf("") }
+
     Column(
         horizontalAlignment = Alignment.CenterHorizontally,
         modifier = Modifier.padding(all = 10.dp)
@@ -51,13 +51,33 @@ fun LoginScreen(navController: NavController) {
                 .padding(start = 8.dp, bottom = 30.dp),
         )
         OutlinedTextField(
+            value = fullname,
+            onValueChange = { fullnameInput -> fullname = fullnameInput },
+            label = { Text("Full Name") },
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(bottom = 10.dp)
+                .clip(componentShape.small),
+        )
+
+        OutlinedTextField(
+            value = username,
+            onValueChange = { usernameInput -> username = usernameInput },
+            label = { Text("Username") },
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(bottom = 10.dp)
+                .clip(componentShape.small)
+        )
+
+        OutlinedTextField(
             value = email,
             onValueChange = { emailInput -> password = emailInput },
             label = { Text("Email") },
             modifier = Modifier
                 .fillMaxWidth()
+                .padding(bottom = 10.dp)
                 .clip(componentShape.small)
-                .padding(start = 8.dp, bottom = 4.dp),
         )
 
         OutlinedTextField(
@@ -67,8 +87,8 @@ fun LoginScreen(navController: NavController) {
             visualTransformation = PasswordVisualTransformation(),
             modifier = Modifier
                 .fillMaxWidth()
+                .padding(bottom = 10.dp)
                 .clip(componentShape.small)
-                .padding(start = 8.dp,bottom = 4.dp),
         )
 
         OutlinedTextField(
@@ -78,21 +98,19 @@ fun LoginScreen(navController: NavController) {
             visualTransformation = PasswordVisualTransformation(),
             modifier = Modifier
                 .fillMaxWidth()
+                .padding(bottom = 10.dp)
                 .clip(componentShape.small)
-                .padding(start = 8.dp, bottom = 4.dp),
         )
         RememberMe()
         Button(
-            onClick = {navController.navigate(Routes.NoteListRoute)},
+            onClick = { navController.navigate(Routes.LoginRoute) },
             modifier = Modifier
                 .padding(bottom = 30.dp)
 
         ) {
             componentShape.medium
-            Text(text = "Login")
+            Text(text = "SignUp")
         }
         ImageIcons()
     }
 }
-
-
