@@ -34,7 +34,6 @@ import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
 import com.chinenyeakukalia.mynoteapp.app.models.Note
-import com.chinenyeakukalia.mynoteapp.app.navigation.Routes
 import com.chinenyeakukalia.mynoteapp.app.view_model.NoteViewModel
 import kotlinx.coroutines.delay
 import java.time.Instant

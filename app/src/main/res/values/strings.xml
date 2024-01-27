@@ -2,4 +2,10 @@
     <string name="app_name">My Note</string>
     <string name="title_of_the_note">Title of the note</string>
     <string name="note_saved">Note Has Been Saved</string>
+    <string name="reset_success_message">A reset link has been sent to your email address</string>
+    <string name="valid_email_error_message">Please enter a valid email address</string>
+    <string name="bottom_navigation_home">Home</string>
+    <string name="bottom_navigation_calendar">Calendar</string>
+    <string name="bottom_navigation_profile">Profile</string>
+    <string name="log_out">Log Out</string>
 </resources>

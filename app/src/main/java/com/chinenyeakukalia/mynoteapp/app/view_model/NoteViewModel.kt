@@ -6,7 +6,6 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.viewModelScope
 import com.chinenyeakukalia.mynoteapp.app.models.Note
 import com.chinenyeakukalia.mynoteapp.app.room.DataBaseConfig
-import com.google.ai.client.generativeai.type.content
 import kotlinx.coroutines.launch
 import java.util.Calendar
 

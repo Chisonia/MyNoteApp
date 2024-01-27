@@ -37,15 +37,15 @@ import androidx.navigation.NavController
 import com.chinenyeakukalia.mynoteapp.R
 import com.chinenyeakukalia.mynoteapp.app.components.MoreIcon
 import com.chinenyeakukalia.mynoteapp.app.components.NoteItem
+import com.chinenyeakukalia.mynoteapp.app.components.Routes
 import com.chinenyeakukalia.mynoteapp.app.components.SearchIcon
 import com.chinenyeakukalia.mynoteapp.app.components.componentShape
-import com.chinenyeakukalia.mynoteapp.app.navigation.Routes
 import com.chinenyeakukalia.mynoteapp.app.view_model.NoteViewModel
 
 @RequiresApi(Build.VERSION_CODES.O)
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun NoteListScreen(navController: NavController){
+fun NoteListSection(navController: NavController){
     val contentViewModel: NoteViewModel = viewModel()
     val listOfNotes by contentViewModel.getAllNotes().observeAsState(emptyList())
 Scaffold (
@@ -70,17 +70,18 @@ Scaffold (
                     .padding(4.dp),
                ){
                 Image(
-                    painter = painterResource(id = R.drawable.backimage_ng),
+                    painter = painterResource(id = R.drawable.notebackground_ng),
                     contentDescription = null,
-                    contentScale = ContentScale.Fit,
+                    contentScale = ContentScale.Crop,
                     modifier = Modifier
                         .fillMaxSize(),
-                    alpha = 0.8F
+                    alpha = 1F
                 )
                     Text(
                         text = "Tap the + button to add a new note",
                         color = Color.Blue,
                         modifier = Modifier
+                            .padding(bottom = 152.dp)
                             .align(Alignment.BottomCenter)
                             .fillMaxWidth(0.7f)
                             .background(Color.Transparent),
@@ -111,7 +112,7 @@ Scaffold (
     floatingActionButton = {
                            FloatingActionButton(
                                onClick = {navController.navigate(Routes.AddNoteRoute)},
-                               modifier = Modifier.padding(4.dp),
+                               modifier = Modifier.padding(bottom = 100.dp),
                                shape = componentShape.extraLarge,
                                containerColor = MaterialTheme.colorScheme.primary,
                            ) {

@@ -10,16 +10,14 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.text.selection.TextSelectionColors
 import androidx.compose.material3.ExperimentalMaterial3Api
-import androidx.compose.material3.FloatingActionButtonDefaults.containerColor
 import androidx.compose.material3.IconButton
-import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextFieldDefaults
 import androidx.compose.material3.TopAppBar
-import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.material3.TopAppBarDefaults.topAppBarColors
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -62,7 +60,7 @@ fun AddNoteScreen(navController: NavHostController) {
               TopAppBar(
                   title = { Text(text = "") },
                   colors = topAppBarColors(
-                      containerColor = Color.White,
+                      containerColor = Color.Transparent,
                       actionIconContentColor = Color.Black,
                       ),
                   actions = {
@@ -111,6 +109,11 @@ fun AddNoteScreen(navController: NavHostController) {
                               focusedContainerColor = Color.Transparent,
                               unfocusedContainerColor = Color.Transparent,
                               disabledContainerColor = Color.Transparent,
+                              errorContainerColor = Color.Red,
+                              selectionColors = TextSelectionColors(
+                                  handleColor = Color.Blue,
+                                  backgroundColor = Color.LightGray
+                              )
                           ),
                           modifier = Modifier
                               .fillMaxWidth()
@@ -134,6 +137,11 @@ fun AddNoteScreen(navController: NavHostController) {
                                   focusedContainerColor = Color.Transparent,
                                   unfocusedContainerColor = Color.Transparent,
                                   disabledContainerColor = Color.Transparent,
+                                  errorContainerColor = Color.Red,
+                                  selectionColors = TextSelectionColors(
+                                      handleColor = Color.Blue,
+                                      backgroundColor = Color.LightGray
+                                  )
                               ),
                               modifier = Modifier
                                   .fillMaxWidth()
